@@ -3,6 +3,3 @@ class Game {
         console.log("wystartowałem grę!!!");
     }
 }
-
-const game = new Game();
-game.run();
