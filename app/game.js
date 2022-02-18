@@ -39,8 +39,17 @@ class Game {
         this.currentlyKeyboard = this.alphabet;
     }
   
-    writeLetter(letter) {
+    writeLetter(letter, element, index) {
+        // console.log(letter.charCodeAt());
         console.log(letter);
+        // console.log(element);
+        if (index%2 == 1) {
+            this.currentlyKeyboard[index].stateChar = 'red';
+            element.classList.add('red'); 
+        } else {
+            this.currentlyKeyboard[index].stateChar = 'green';
+            element.classList.add('green');
+        }
     }
 
     changeKeyboard() {
