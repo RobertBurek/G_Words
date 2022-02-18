@@ -10,6 +10,53 @@ class CharKeyboard {
 }
 
 class Game {
+
+    words5 = [{
+        word: 'BALON',
+        categoru: 'Rzecz'
+    },{
+        word: 'MOTYL',
+        categoru: 'Przyroda'
+    },{
+        word: 'MUCHA',
+        categoru: 'Przyroda'
+    },{
+        word: 'MAZAK',
+        categoru: 'Rzecz'
+    },{
+        word: 'BANAN',
+        categoru: 'Jedzenie'
+    },{
+        word: 'POTOK',
+        categoru: 'Przyroda'
+    },{
+        word: 'FARBA',
+        categoru: 'Rzecz'
+    }]
+
+    words6 = [{
+        word: 'ANTENA',
+        categoru: 'Rzecz'
+    },{
+        word: 'KAŁUŻA',
+        categoru: 'Przyroda'
+    },{
+        word: 'KALINA',
+        categoru: 'Przyroda'
+    },{
+        word: 'AMULET',
+        categoru: 'Rzecz'
+    },{
+        word: 'AGREST',
+        categoru: 'Jedzenie'
+    },{
+        word: 'BAMBUS',
+        categoru: 'Przyroda'
+    },{
+        word: 'FORINT',
+        categoru: 'Rzecz'
+    }]
+
     constructor({ lettersWrapper, categoryWrapper, wordGameWrapper, keyboardScheme, keyboard1, keyboard2, keyboard3, keyboard4 }) {
         this.lettersWrapper = lettersWrapper;
         this.categoryWrapper = categoryWrapper;
@@ -113,15 +160,5 @@ class Game {
 
     run() {
         this.createKeyboard(this.currentlyKeyboard, this.keyboard1, this.keyboard2, this.keyboard3, this.keyboard4);
-
-
-              //   console.log("wystartowałem grę!!!");
-          //   for (let i = 10; i < 36; i++) {
-          //     const letter = i.toString(36);
-          //     const button = document.createElement("button");
-          //     button.innerHTML = letter.toUpperCase();
-          //     button.addEventListener('click', () => this.writeLetter(letter));
-          //     this.lettersWrapper.appendChild(button);
-          //   }
     }
 }
