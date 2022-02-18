@@ -37,25 +37,82 @@ class Game {
                   this.charsObject[13], this.charsObject[12], this.charsObject[27], this.charsObject[28], this.charsObject[29], this.charsObject[30], this.charsObject[31], this.charsObject[26],
                   this.charsObject[32], this.charsObject[33], this.charsObject[34]]
         this.currentlyKeyboard = this.alphabet;
-  }
-  
-  writeLetter(letter) {
-      console.log(letter);
-  }
-
-  changeKeyboard() {
-    if (this.currentlyKeyboard == this.alphabet) this.currentlyKeyboard = this.qwerty;
-    else this.currentlyKeyboard = this.alphabet;
-}
-
-  run() {
-    console.log("wystartowałem grę!!!");
-    for (let i = 10; i < 36; i++) {
-      const letter = i.toString(36);
-      const button = document.createElement("button");
-      button.innerHTML = letter.toUpperCase();
-      button.addEventListener('click', () => this.writeLetter(letter));
-      this.lettersWrapper.appendChild(button);
     }
-  }
+  
+    writeLetter(letter) {
+        console.log(letter);
+    }
+
+    changeKeyboard() {
+      if (this.currentlyKeyboard == this.alphabet) this.currentlyKeyboard = this.qwerty;
+      else this.currentlyKeyboard = this.alphabet;
+    }
+
+    createKeyboard(lettersCheme, keyboard1, keyboard2, keyboard3, keyboard4) {
+        keyboard1.innerHTML = "";
+        keyboard2.innerHTML = "";
+        keyboard3.innerHTML = "";
+        keyboard4.innerHTML = "";
+        for (let i = 0; i < 10; i++) {
+          const letter = String.fromCharCode(lettersCheme[i].numberChar);
+          const button = document.createElement("button");
+          button.className = lettersCheme[i].stateChar;
+          button.innerHTML = letter;
+          button.addEventListener('click', () => this.writeLetter(letter, button, i));
+          keyboard1.appendChild(button);
+        }
+        for (let i = 10; i < 19; i++) {
+          const letter = String.fromCharCode(lettersCheme[i].numberChar);
+          const button = document.createElement("button");
+          button.className = lettersCheme[i].stateChar;
+          button.innerHTML = letter;
+          button.addEventListener('click', () => this.writeLetter(letter, button, i));
+          keyboard2.appendChild(button);
+        }
+        const divKeyboard = document.createElement("div");
+        divKeyboard.setAttribute("id", "keyboardScheme");
+        divKeyboard.className='keyboard-scheme';
+        divKeyboard.innerHTML = '<i class="fas fa-keyboard"></i>';
+        divKeyboard.addEventListener('click', () =>{
+          this.changeKeyboard();
+          this.createKeyboard(this.currentlyKeyboard, this.keyboard1, this.keyboard2, this.keyboard3, this.keyboard4);
+        });
+        keyboard3.appendChild(divKeyboard);
+        for (let i = 19; i < 26; i++) {
+          const letter = String.fromCharCode(lettersCheme[i].numberChar);
+          const button = document.createElement("button");
+          button.className = lettersCheme[i].stateChar;
+          button.innerHTML = letter;
+          button.addEventListener('click', () => this.writeLetter(letter, button, i));
+          keyboard3.appendChild(button);
+        }
+        const divBackspace = document.createElement("div");
+        divBackspace.className = 'back-space';
+        divBackspace.innerHTML = '<i class="fas fa-long-arrow-alt-left"></i>';
+        divBackspace.addEventListener('click', () => this.writeLetter(letter, divBackspace, 10));
+        keyboard3.appendChild(divBackspace);
+        for (let i = 26; i < 35; i++) {
+          const letter = String.fromCharCode(lettersCheme[i].numberChar);
+          const button = document.createElement("button");
+          button.className = lettersCheme[i].stateChar;
+          button.innerHTML = letter;
+          button.addEventListener('click', () => this.writeLetter(letter, button, i));
+          keyboard4.appendChild(button);
+        }
+    }
+
+
+    run() {
+        this.createKeyboard(this.currentlyKeyboard, this.keyboard1, this.keyboard2, this.keyboard3, this.keyboard4);
+
+
+              //   console.log("wystartowałem grę!!!");
+          //   for (let i = 10; i < 36; i++) {
+          //     const letter = i.toString(36);
+          //     const button = document.createElement("button");
+          //     button.innerHTML = letter.toUpperCase();
+          //     button.addEventListener('click', () => this.writeLetter(letter));
+          //     this.lettersWrapper.appendChild(button);
+          //   }
+    }
 }
