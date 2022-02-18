@@ -43,6 +43,11 @@ class Game {
       console.log(letter);
   }
 
+  changeKeyboard() {
+    if (this.currentlyKeyboard == this.alphabet) this.currentlyKeyboard = this.qwerty;
+    else this.currentlyKeyboard = this.alphabet;
+}
+
   run() {
     console.log("wystartowałem grę!!!");
     for (let i = 10; i < 36; i++) {
