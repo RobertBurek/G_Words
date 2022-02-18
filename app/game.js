@@ -9,6 +9,13 @@ class CharKeyboard {
     }
 }
 
+class GuessWord {
+    constructor (word, level) {
+        this.word = word;
+        this.level = level;
+    }
+}
+
 class Game {
 
     words5 = [{
@@ -84,12 +91,14 @@ class Game {
                   this.charsObject[13], this.charsObject[12], this.charsObject[27], this.charsObject[28], this.charsObject[29], this.charsObject[30], this.charsObject[31], this.charsObject[26],
                   this.charsObject[32], this.charsObject[33], this.charsObject[34]]
         this.currentlyKeyboard = this.alphabet;
-        
+
         this.level = 5;
         const {word, category} = this.words5[Math.floor(Math.random()*this.words5.length)];
-        console.log(word);
-        console.log(category);
+
         this.categoryWrapper.innerHTML = 'KATEGORIA:  ' + category;
+        this.guessWord = new GuessWord(word, this.level);
+        console.log(this.guessWord.word);
+        console.log(this.guessWord.level);
     }
   
     writeLetter(letter, element, index) {
