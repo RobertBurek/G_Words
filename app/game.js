@@ -13,48 +13,48 @@ class Game {
 
     words5 = [{
         word: 'BALON',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     },{
         word: 'MOTYL',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'MUCHA',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'MAZAK',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     },{
         word: 'BANAN',
-        categoru: 'Jedzenie'
+        category: 'Jedzenie'
     },{
         word: 'POTOK',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'FARBA',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     }]
 
     words6 = [{
         word: 'ANTENA',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     },{
         word: 'KAŁUŻA',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'KALINA',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'AMULET',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     },{
         word: 'AGREST',
-        categoru: 'Jedzenie'
+        category: 'Jedzenie'
     },{
         word: 'BAMBUS',
-        categoru: 'Przyroda'
+        category: 'Przyroda'
     },{
         word: 'FORINT',
-        categoru: 'Rzecz'
+        category: 'Rzecz'
     }]
 
     constructor({ lettersWrapper, categoryWrapper, wordGameWrapper, keyboardScheme, keyboard1, keyboard2, keyboard3, keyboard4 }) {
@@ -84,6 +84,12 @@ class Game {
                   this.charsObject[13], this.charsObject[12], this.charsObject[27], this.charsObject[28], this.charsObject[29], this.charsObject[30], this.charsObject[31], this.charsObject[26],
                   this.charsObject[32], this.charsObject[33], this.charsObject[34]]
         this.currentlyKeyboard = this.alphabet;
+        
+        this.level = 5;
+        const {word, category} = this.words5[Math.floor(Math.random()*this.words5.length)];
+        console.log(word);
+        console.log(category);
+        this.categoryWrapper.innerHTML = 'KATEGORIA:  ' + category;
     }
   
     writeLetter(letter, element, index) {
