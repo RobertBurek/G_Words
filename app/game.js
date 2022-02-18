@@ -14,6 +14,20 @@ class GuessWord {
         this.word = word;
         this.level = level;
     }
+
+    // getContent (level, currentLetter, letter) {
+    //     const currentRound = document.getElementsByClassName('line current-round');
+    //     const divLine = document.createElement("div");
+    //     divLine.className = 'line';
+    //     for ( let i = 0; i <= level; i++){
+    //         const divLetter = document.createElement("div");
+    //         divLetter.className = 'one-letter';
+    //     }
+    //     // for (const char of this.word) {
+
+    //     // }
+
+    // }
 }
 
 class Game {
@@ -172,8 +186,24 @@ class Game {
         }
     }
 
+    createStartPlaceGame(level, wrapper) {
+        for ( let i = 0; i < level + 1; i++){
+            const divLine = document.createElement("div");
+            if (i ==0) divLine.className = 'line current-round';
+            else divLine.className = 'line';
+            for ( let j = 0; j < level; j++){
+                const divLetter = document.createElement("div");
+                if ((j == 0) && (i == 0)) divLetter.className = 'one-letter current-letter';
+                else divLetter.className = 'one-letter';
+                divLine.appendChild(divLetter);
+            }
+            wrapper.appendChild(divLine);
+        }
+    }
 
     run() {
         this.createKeyboard(this.currentlyKeyboard, this.keyboard1, this.keyboard2, this.keyboard3, this.keyboard4);
+        console.log(this.wordGameWrapper);
+        this.createStartPlaceGame(this.level, this.wordGameWrapper);
     }
 }
